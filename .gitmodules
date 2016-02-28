@@ -1,0 +1,3 @@
+[submodule "ansible-scripts"]
+	path = ansible-scripts
+	url = https://github.com/itmo-escience/ansible-scripts

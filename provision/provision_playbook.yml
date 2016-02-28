@@ -1,0 +1,7 @@
+---
+- name: Install Spark
+  hosts: 127.0.0.1
+  connection: local
+  sudo: yes
+  roles:
+    - {role: ansible-scripts/ansible-bdas/roles/spark_standalone }
