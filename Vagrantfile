@@ -17,8 +17,10 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "192.168.0.42"
   config.vm.provider "virtualbox" do |v|
 	v.gui = true
+	v.memory = 12*1024
+	v.cpus = 4
   end
-  config.vm.provision "shell", path: "provision/install-ansible.sh"
-  config.vm.provision "shell", path: "provision/install-playbook-dependencies.sh"
-  config.vm.provision "shell", path: "provision/run_playbook.sh"
+  config.vm.provision "ansibleInstaller", type: "shell", path: "provision/install-ansible.sh"
+  config.vm.provision "playbooksInstaller", type: "shell", path: "provision/install-playbook-dependencies.sh"
+  config.vm.provision "playbookRunner", type: "shell", path: "provision/run_playbook.sh"
 end
