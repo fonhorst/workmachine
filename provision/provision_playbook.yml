@@ -4,4 +4,11 @@
   connection: local
   sudo: yes
   roles:
+    - {role: ansible-scripts/ansible-bdas/roles/hdp_hadoop_common }
     - {role: ansible-scripts/ansible-bdas/roles/spark_standalone }
+  tasks:
+    - name: Create .profile for vagrant user
+      template: src=templates/vagrant-profile.j2
+                dest=/home/vagrant/.profile
+                owner=vagrant
+                mode="u=rw,g=r,o=r"
