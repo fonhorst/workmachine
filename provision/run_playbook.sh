@@ -1,3 +1,6 @@
 #!/bin/sh
 
-ansible-playbook /vagrant/provision/provision_playbook.yml
+cur_dir=$(pwd)
+cd /vagrant
+ansible-playbook provision/provision_playbook.yml
+cd $cur_dir
