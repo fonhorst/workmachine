@@ -3,6 +3,9 @@
   hosts: 127.0.0.1
   connection: local
   sudo: yes
+  tasks:
+    - name: Replace wget config file
+      copy: src=files/etc-wgetrc dest=/etc/wgetrc
   roles:
     - {role: ansible-scripts/ansible-bdas/roles/hdp_hadoop_common }
     - {role: ansible-scripts/ansible-bdas/roles/spark_standalone }
